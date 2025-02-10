@@ -1,0 +1,550 @@
+﻿@import url('http://fonts.googleapis.com/css?family=Ubuntu+Condensed');
+@import url('https://fonts.googleapis.com/css?family=Niconne');
+/***************************************************************************************************/
+@font-face {
+	font-family: 'icomoon';
+	src: url('../fonts/icomoon.eot?9v6cm4');
+	src: url('../fonts/icomoon.eot?9v6cm4#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf?9v6cm4') format('truetype'), url('../fonts/icomoon.woff?9v6cm4') format('woff'), url('../fonts/icomoon.svg?9v6cm4#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: inline-block;
+}
+
+.fa {
+	display: inline-block;
+	font: normal normal normal 14px/1 icomoon;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fa-lg {
+	font-size: 1.33333333em;
+	line-height: .75em;
+	vertical-align: -15%;
+}
+
+.fa-2x {
+	font-size: 2em;
+}
+
+.fa-3x {
+	font-size: 3em;
+}
+
+.fa-4x {
+	font-size: 4em;
+}
+
+.fa-5x {
+	font-size: 5em;
+}
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+.fa-stack {
+	position: relative;
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+	vertical-align: middle;
+}
+
+.fa-stack-1x, .fa-stack-2x {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+
+.fa-stack-1x {
+	line-height: inherit;
+}
+
+.fa-stack-2x {
+	font-size: 2em;
+}
+
+.fa-inverse {
+	color: #fff;
+}
+
+.icon-home:before {
+	content: "\f015";
+}
+
+.icon-video-camera:before {
+	content: "\f03d";
+}
+
+.icon-map-marker:before {
+	content: "\f041";
+}
+
+.icon-tint:before {
+	content: "\f043";
+}
+
+.icon-gift:before {
+	content: "\f06b";
+}
+
+.icon-phone:before {
+	content: "\f095";
+}
+
+.icon-dashboard:before {
+	content: "\f0e4";
+}
+
+.icon-tachometer:before {
+	content: "\f0e4";
+}
+
+.icon-user-md:before {
+	content: "\f0f0";
+}
+
+.icon-desktop:before {
+	content: "\f108";
+}
+
+.icon-child:before {
+	content: "\f1ae";
+}
+
+.icon-automobile:before {
+	content: "\f1b9";
+}
+
+.icon-car:before {
+	content: "\f1b9";
+}
+
+.icon-tree:before {
+	content: "\f1bb";
+}
+
+.icon-plug:before {
+	content: "\f1e6";
+}
+
+.icon-bus:before {
+	content: "\f207";
+}
+
+.icon-bed:before {
+	content: "\f236";
+}
+
+.icon-hotel:before {
+	content: "\f236";
+}
+
+.icon-calendar-check-o:before {
+	content: "\f274";
+}
+
+.icon-map-signs:before {
+	content: "\f277";
+}
+
+.icon-map-o:before {
+	content: "\f278";
+}
+
+.icon-tv:before {
+	content: "\e900";
+}
+
+.icon-circle:before {
+	content: "\f111";
+}
+
+
+/***************************************************************************************************/
+p {
+	padding: 0 0;
+	margin: 0 0;
+}
+
+ul {
+	padding: 0 0;
+	margin: 0 0;
+}
+
+
+body {
+	padding: 0 0;
+	margin: 0 0;
+	font-family: 'Ubuntu Condensed','Open Sans', sans-serif;
+}
+
+* {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+}
+
+.footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 40px;
+	background-color: #fff;
+	padding: 10px;
+	font-weight: bold;
+	/*border-top: 1px solid;*/
+	z-index: 1000;
+	color: #222;
+	box-shadow: 0 -2px 10px #aaa;
+}
+
+/* Home Banner
+-------------------------------------------------- */
+.banner_holder {
+	width: 100%;
+	height: 600px; /* margin: 30px 0;*/
+	position: relative;
+	background-color: #ffffff;
+	box-shadow: 0 -1px 20px #777;
+}
+
+.banner_image {
+	background: url(../images/banner1.jpg) 0 10% no-repeat fixed;
+	background-size: 100% 100%;
+	position: absolute;
+	height: 600px;
+	width: 100%;
+	z-index: 1;
+}
+
+.banner_holder2 {
+	height: 400px;
+}
+
+	.banner_holder2 .banner_image {
+		height: 400px;
+	}
+
+.banner_holder:before, .banner_holder:after {
+	z-index: -1;
+	position: absolute;
+	content: "";
+	bottom: 15px;
+	left: 10px;
+	width: 50%;
+	top: 80%;
+	max-width: 500px;
+	background: #777;
+	box-shadow: 0 15px 20px #777;
+	transform: rotate(-3deg);
+}
+
+.banner_holder:after {
+	transform: rotate(3deg);
+	right: 10px;
+	left: auto;
+}
+
+
+.banner_holder p {
+	font-size: 200%;
+}
+
+	.banner_holder p:nth-of-type(2) {
+		font-size: 300%;
+	}
+
+.banner_holder2 p {
+	font-size: 2.5em;
+}
+
+	.banner_holder2 p:nth-of-type(2) {
+		font-size: 2em;
+	}
+/*------------------------------------------------ */
+
+
+.map iframe {
+	width: 100%;
+	min-height: 300px;
+}
+
+.bs-callout {
+	padding: 20px;
+	/*margin: 20px 0;*/
+	border-radius: 3px;
+	font-weight: bold;
+	font-size: 200%;
+}
+
+	.bs-callout h4 {
+		color: #ce4844;
+	}
+
+	.bs-callout i {
+		color: #ce4844;
+		font-size: 1.3em;
+		margin-right: 20px;
+		width: 30px;
+	}
+
+.bs-callout {
+	border-left-color: #ce4844;
+}
+
+/*------------------------------------------------ */
+/*--gallery--*/
+.gallery {
+	padding: 3em 0;
+}
+
+.gallery-bottom {
+	margin-top: 2em;
+}
+
+.gallery-left img {
+	width: 100%;
+}
+
+.gallery-left:hover img {
+	-webkit-filter: grayscale(100%);
+	opacity: 8;
+	transition: all 300ms !important;
+	-webkit-transition: all 300ms !important;
+	-moz-transition: all 300ms !important;
+}
+
+.gallery-left {
+	position: relative;
+}
+
+.gallery-grid img {
+	width: 100%;
+}
+
+.gallery-grid:hover img {
+	-webkit-filter: grayscale(100%);
+	opacity: 8;
+	transition: all 300ms !important;
+	-webkit-transition: all 300ms !important;
+	-moz-transition: all 300ms !important;
+}
+
+.gallery-grid {
+	position: relative;
+}
+
+.gallery-1 {
+	margin-top: 25px;
+}
+
+	.gallery-1:nth-child(1) {
+		margin-top: 0;
+	}
+/*------------------------------------------------ */
+
+.hcls {
+	color: #ce4844;
+	text-align: center;
+}
+
+p {
+	font-size: 125%;
+}
+
+h1, h2, h3 {
+	color: #ce4844;
+}
+
+.navbar-nav a {
+	transition: .5s all;
+}
+
+#toTop {
+	display: none;
+	text-decoration: none;
+	position: fixed;
+	bottom: 60px;
+	right: 2%;
+	overflow: hidden;
+	z-index: 999;
+	width: 24px;
+	height: 24px;
+	border: none;
+	text-indent: 100%;
+	background: url("../images/up-arrow.png") no-repeat 0px 0px;
+}
+
+.icon-circle {
+	color: #ce4844;
+}
+
+
+.welcomebanner1 p {
+	font-size: 200%;
+}
+/*------------------------------------------------ */
+
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #888;
+}
+
+/*------------------------------------------------ */
+
+
+@media only screen and (max-width: 479px) {
+
+	.banner_holder {
+		height: 300px;
+	}
+
+	.banner_image {
+		height: 300px;
+		background-size: 100% 40%;
+	}
+
+	.banner_holder p {
+		font-size: 100%;
+	}
+
+		.banner_holder p:nth-of-type(2) {
+			font-size: 130%;
+		}
+
+	.banner_holder2 {
+		height: 300px;
+	}
+
+		.banner_holder2 .banner_image {
+			height: 300px;
+		}
+
+		.banner_holder2 p {
+			font-size: 1.5em;
+		}
+
+			.banner_holder2 p:nth-of-type(2) {
+				font-size: 1.2em;
+			}
+
+	.bs-callout {
+		font-size: 150%;
+	}
+
+	.footer {
+		height: 45px;
+		font-size: 75%;
+	}
+
+		.footer * {
+			text-align: left;
+		}
+}
+
+@media (min-width: 479px) and (max-width: 786px) {
+
+	.banner_holder {
+		height: 300px;
+	}
+
+	.banner_image {
+		height: 300px;
+		background-size: 100% 40%;
+	}
+
+	.banner_holder p {
+		font-size: 150%;
+	}
+
+		.banner_holder p:nth-of-type(2) {
+			font-size: 180%;
+		}
+
+	.banner_holder2 {
+		height: 300px;
+	}
+
+		.banner_holder2 .banner_image {
+			height: 300px;
+		}
+
+		.banner_holder2 p {
+			font-size: 1.6em;
+		}
+
+			.banner_holder2 p:nth-of-type(2) {
+				font-size: 1.2em;
+			}
+
+	.bs-callout {
+		font-size: 150%;
+	}
+
+	.footer {
+		height: 45px;
+		font-size: 85%;
+	}
+
+		.footer * {
+			text-align: left;
+		}
+}
+
+@media (min-width: 786px) and (max-width: 991px) {
+	.banner_holder2 {
+		height: 300px;
+	}
+
+		.banner_holder2 .banner_image {
+			height: 300px;
+		}
+
+		.banner_holder2 p {
+			font-size: 1.8em;
+		}
+
+			.banner_holder2 p:nth-of-type(2) {
+				font-size: 1.4em;
+			}
+}
