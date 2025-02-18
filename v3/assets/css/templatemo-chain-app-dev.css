@@ -332,7 +332,7 @@ header
 
 .header-area {
   background-color: transparent;
-  border-bottom: 1px solid rgba(42, 42, 42, 0.2);
+  /* border-bottom: 1px solid rgba(42, 42, 42, 0.2); */
   position: absolute;
   left: 0px;
   right: 0px;
