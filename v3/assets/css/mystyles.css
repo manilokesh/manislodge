@@ -30,7 +30,7 @@ body::before {
     width: 100%;
     height: 100%;
     background: url(../images/blue_gradient_wave.png) center center / cover no-repeat;
-    z-index: 1;
+    z-index: -1;
     /* Keeps it behind the content */
     opacity: 0.10;
     /* Adjust transparency if needed */
@@ -39,6 +39,11 @@ body::before {
     filter: invert(0.5)
 }
 
+/* Ensuring content stays above ::before */
+div#content {
+    position: relative;
+    /* z-index: 1; */
+}
 /*****************************************************************/
 
 h1, h2, h3, h4, h5, h6 {
@@ -173,6 +178,7 @@ h4 em {
 .js-preloader.loaded {
     opacity: 0;
     visibility: hidden;
+    display:none;
     pointer-events: none;
 }
 
