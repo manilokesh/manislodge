@@ -44,6 +44,7 @@ div#content {
     position: relative;
     /* z-index: 1; */
 }
+
 /*****************************************************************/
 
 h1, h2, h3, h4, h5, h6 {
@@ -99,57 +100,6 @@ h4 em {
 /* preloader */
 
 
-.loader_heartbeat {
-    position: relative;
-    width: 40px;
-    height: 60px;
-    animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.loader_heartbeat:before,
-.loader_heartbeat:after {
-    content: "";
-    background: #ff3d00;
-    width: 40px;
-    height: 60px;
-    border-radius: 50px 50px 0 0;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    transform: rotate(45deg);
-    transform-origin: 50% 68%;
-    box-shadow: 5px 4px 5px #0004 inset;
-}
-
-.loader_heartbeat:after {
-    transform: rotate(-45deg);
-}
-
-@keyframes heartBeat {
-    0% {
-        transform: scale(0.95)
-    }
-
-    5% {
-        transform: scale(1.1)
-    }
-
-    39% {
-        transform: scale(0.85)
-    }
-
-    45% {
-        transform: scale(1)
-    }
-
-    60% {
-        transform: scale(0.95)
-    }
-
-    100% {
-        transform: scale(0.9)
-    }
-}
 
 .js-preloader {
     position: fixed;
@@ -168,20 +118,32 @@ h4 em {
     visibility: visible;
     z-index: 9999;
     -webkit-transition: opacity 0.25s ease;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease-out;
 
-    background: linear-gradient(0deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
+    background: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
     background-attachment: fixed;
     background-size: cover;
 }
 
 .js-preloader.loaded {
-    opacity: 0;
-    visibility: hidden;
-    display:none;
     pointer-events: none;
+
+    animation: fadeOut 0.5s ease-out forwards;
 }
 
+/* Keyframes for fade-out effect */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
 
 /*****************************************************************/
 /* Header */
@@ -263,7 +225,21 @@ h4 em {
     align-items: center;
     text-align: center;
     justify-content: center;
-    padding: 10%;
+    padding: 5%;
+}
+
+.carousel-item i {
+    font-size: 4em;
+    margin-bottom: 0.8em;
+    background: linear-gradient(90deg, #ff00c3, #d123ba, #a42dab, #7b2f97);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    /* Ensures it only applies to the text */
+}
+
+.carousel-item p {
+    margin-top: 1em;
     color: #fff;
 }
 
