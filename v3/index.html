@@ -31,54 +31,6 @@
     <link rel="stylesheet" href="assets/css/animated.css">
 
     <style>
-      .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      html,
-      body {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        color: #fff;
-        background: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
-        background-attachment: fixed;
-        /* Keeps the background fixed */
-        background-size: cover;
-        /* Ensures it covers the entire viewport */
-      }
-
-      body {
-        min-height: 100vh;
-        /* Ensures the body covers at least the full viewport height */
-        overflow-x: hidden;
-        /* Prevents horizontal scrolling */
-      }
-    </style>
-
-    <style>
-      /* Full-page Loader */
-      #loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-      }
-
-      /* Hide main content initially */
-      #content {
-        display: none;
-      }
     </style>
     <link rel="stylesheet" href="assets/css/mystyles.css">
 
@@ -99,10 +51,8 @@
     </script>
 
     <!-- Loader -->
-    <div id="loader">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
+    <div id="js-preloader" class="js-preloader">
+      <span class="loader_heartbeat"></span>
     </div>
 
     <!-- Main Content -->
@@ -137,11 +87,12 @@
               <img src="assets/images/logo1.png" alt="" style="width: 250px;"><br />
               <span class="loaderx">man&nbsp;s</span><br />
 
-              <h2 class="my-5" style="font-family: 'Passions Conflict', serif; font-size: 4em; ">
+              <h2 class="my-5 text-start" style="font-family: 'Passions Conflict', serif; font-size: 4em; ">
                 we <span style="font-family: 'Poppins', serif; font-size: 0.7em;">manis lodge</span> offers a
                 warm, enjoyable and inviting atmosphere ...
               </h2>
-              <p>Located in the heart of the town, we are few 100 meters from the Kangayam bus terminal</p>
+              <p class="text-start">Located in the heart of the town, we are few 100 meters from the Kangayam bus
+                terminal</p>
             </div>
           </div>
         </div>
@@ -152,7 +103,7 @@
       <div class="container">
         <div class="row" style="display: grid; place-items: center; min-height: 70vh;">
           <div class="col-lg-8  ">
-            <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+            <div style="" class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
 
               <h4><em>manis lodge </em>an extreme service & satisfaction for the customers.</h4>
               <img src="assets/images/heading-line-dec.png" alt="">
@@ -396,7 +347,7 @@
 
       <!-- Bootstrap Modal -->
       <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content">
             <div class="modal-body text-center">
               <img id="modalImage" src="" class="img-fluid" style="border-radius: 8px;">
@@ -413,6 +364,7 @@
       <script>
 
         function openModal(imgElement) {
+          alert(imgElement);
           document.getElementById("modalImage").src = imgElement.src;
           new bootstrap.Modal(document.getElementById("imageModal")).show();
         }
@@ -490,11 +442,10 @@
           }
         ];
 
-        // Wait for the page to fully load
-        window.onload = function () {
-          document.getElementById("loader").style.display = "none"; // Hide loader
-          document.getElementById("content").style.display = "block"; // Show content
-        };
+        // Page loading animation
+        $(window).on('load', function () {
+          $('#js-preloader').addClass('loaded');
+        });
 
         $(document).ready(function () {
 
@@ -502,7 +453,7 @@
           // Loop through the JSON data and append each service to the container
           servicesData.forEach((service, index) => {
             const serviceItem = `
-          <div style="margin-top: 3em;" class="col-sm-2  wow fadeInDown" data-wow-duration="1s" data-wow-delay="${index * 0.5}s">
+          <div style="margin-top: 3em;" class="col-lg-2 col-md-4 col-sm-6 col-xs-6  wow fadeInDown" data-wow-duration="1s" data-wow-delay="${index * 0.5}s">
 						<i class="${service.icon}"></i>
 						 <h4>${service.title}</h4>
                 <p>${service.description}</p>
@@ -514,8 +465,8 @@
           for (let i = 0; i < 12; i++) {
             let itemName = i < 9 ? `0${i + 1}` : `${i + 1}`; // Add leading zero if i is less than 10  
             const galleryItem = `
-            <div class="col-lg-3 gallery-grid p-2"> 
-              <img src="assets/images/gallery/${itemName}.jpg" class="gallery-img" onclick="openModal(this)"> 
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6 gallery-grid p-2"> 
+              <img src="assets/images/gallery/${itemName}.jpg" class="gallery-img" onClick="openModal(this);"> 
             </div> `;
             galleryContainer.append(galleryItem);
           }

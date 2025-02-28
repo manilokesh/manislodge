@@ -1,3 +1,46 @@
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #fff;
+    background: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
+    background-attachment: fixed;
+    /* Keeps the background fixed */
+    background-size: cover;
+    /* Ensures it covers the entire viewport */
+}
+
+body {
+    min-height: 100vh;
+    /* Ensures the body covers at least the full viewport height */
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+}
+
+
+/* Adding fixed full-width image */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/blue_gradient_wave.png) center center / cover no-repeat;
+    z-index: 1;
+    /* Keeps it behind the content */
+    opacity: 0.10;
+    /* Adjust transparency if needed */
+    /*transform: translate(20%, 10%) rotate(135deg);*/
+    /* Adjust angle as needed */
+    filter: invert(0.5)
+}
+
+/*****************************************************************/
+
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -29,7 +72,7 @@ a {
 
 h4 em {
     font-style: normal;
-    color: #e0c61c;
+    color: #FFD700;
 }
 
 .section-heading p {
@@ -45,6 +88,94 @@ h4 em {
     width: 15%;
     margin: 0 auto;
 }
+
+
+/*****************************************************************/
+/* preloader */
+
+
+.loader_heartbeat {
+    position: relative;
+    width: 40px;
+    height: 60px;
+    animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.loader_heartbeat:before,
+.loader_heartbeat:after {
+    content: "";
+    background: #ff3d00;
+    width: 40px;
+    height: 60px;
+    border-radius: 50px 50px 0 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: rotate(45deg);
+    transform-origin: 50% 68%;
+    box-shadow: 5px 4px 5px #0004 inset;
+}
+
+.loader_heartbeat:after {
+    transform: rotate(-45deg);
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(0.95)
+    }
+
+    5% {
+        transform: scale(1.1)
+    }
+
+    39% {
+        transform: scale(0.85)
+    }
+
+    45% {
+        transform: scale(1)
+    }
+
+    60% {
+        transform: scale(0.95)
+    }
+
+    100% {
+        transform: scale(0.9)
+    }
+}
+
+.js-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+    -webkit-transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease;
+
+    background: linear-gradient(0deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.js-preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 
 /*****************************************************************/
 /* Header */
@@ -72,7 +203,7 @@ h4 em {
 /* Services */
 
 .services_features i {
-    color: #e0c61c;
+    color: #FFD700;
     font-size: 2em;
     margin-bottom: 1em;
     transition: transform 0.5s ease-in-out;
@@ -87,7 +218,7 @@ h4 em {
     }
 
     h4 {
-        color: #e0c61c;
+        color: #FFD700;
     }
 
 }
@@ -213,6 +344,7 @@ h4 em {
 }
 
 /*****************************************************************/
+/* footer */
 
 .footer {
     padding: 2em;
@@ -221,7 +353,7 @@ h4 em {
 
 .footer h3 a {
     text-decoration: none;
-    color: #e0c61c;
+    color: #FFD700;
     font-size: 1.2em;
     margin-bottom: 0.5em;
     display: inline-block;
@@ -233,6 +365,7 @@ h4 em {
 }
 
 /*****************************************************************/
+/* name 'i' jumping animation */
 
 .loaderx {
     color: #FFF;
@@ -288,6 +421,7 @@ h4 em {
 }
 
 /*****************************************************************/
+/* around us*/
 
 .pricing-item-regular {
     display: flex;
@@ -306,13 +440,13 @@ h4 em {
 }
 
 .pricing-item-regular .btn-link {
-   text-decoration: none;
-   text-align: right;
-   color:#e0c61c;
+    text-decoration: none;
+    text-align: right;
+    color: #FFD700;
 }
 
-.pricing-item-regular .btn-link a { 
-    color:#e0c61c;
- }
+.pricing-item-regular .btn-link a {
+    color: #FFD700;
+}
 
 /*****************************************************************/
