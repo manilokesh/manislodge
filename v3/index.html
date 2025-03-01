@@ -61,9 +61,9 @@
       <!-- header -->
       <div class="container">
         <div class=" wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-          <div class="row  py-3 mb-4 border-bottom1  ">
+          <div class="row py-3 mb-4 border-bottom1  ">
 
-            <div class="col-md-6 social">
+            <div class="col-md-3 col-sm-6 social">
               <a href="https://www.facebook.com/manislodge" target="_blank">
                 <i class="fa-brands fa-facebook text-white me-3" style="font-size:1.5em"></i>
               </a>
@@ -71,7 +71,7 @@
                 <i class="fa-solid fa-map-location-dot text-white" style="font-size:1.5em"></i>
               </a>
             </div>
-            <div class="col-md-6 details text-end">
+            <div class="col-md-9 col-sm-6 details text-end">
               <ul>
                 <li><i class="fa-solid fa-phone me-2"></i>(+91) 9488 222044</li>
                 <li><i class="fa-solid fa-phone me-2"></i>(+91) 04257 222044</li>
@@ -89,8 +89,8 @@
             <div>
               <img src="assets/images/logo1.png" alt="" style="width: 250px;"><br />
               <span class="loaderx">man&nbsp;s</span><br />
-              <div class=" wow fadeInUp" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-                <h2 class="my-5 text-start" style="font-family: 'Passions Conflict', serif; font-size: 4em; ">
+              <div class="welcometext wow fadeInUp" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+                <h2 class="my-5 text-start">
                   we <span style="font-family: 'Poppins', serif; font-size: 0.7em;">manis lodge</span> offers a
                   warm, enjoyable and inviting atmosphere ...
                 </h2>
@@ -456,6 +456,11 @@
         // Page loading animation
         $(window).on('load', function () {
           $('#js-preloader').addClass('loaded');
+
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }, 10); // Small delay ensures it takes effect
         });
 
         $(document).ready(function () {

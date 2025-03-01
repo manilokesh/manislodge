@@ -1,3 +1,9 @@
+:root {
+    --goldcolor: #FFD700 ;
+    --bggradient: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
+    
+}
+
 html,
 body {
     font-family: 'Poppins', sans-serif;
@@ -6,11 +12,12 @@ body {
     padding: 0;
     height: 100%;
     color: #fff;
-    background: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
+    background: var(--bggradient);
     background-attachment: fixed;
     /* Keeps the background fixed */
     background-size: cover;
     /* Ensures it covers the entire viewport */
+    scroll-behavior: smooth;
 }
 
 body {
@@ -78,7 +85,7 @@ a {
 
 h4 em {
     font-style: normal;
-    color: #FFD700;
+    color: var(--goldcolor);
 }
 
 .section-heading p {
@@ -120,7 +127,7 @@ h4 em {
     -webkit-transition: opacity 0.25s ease;
     transition: opacity 0.25s ease, visibility 0.25s ease-out;
 
-    background: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
+    background: var(--bggradient);
     background-attachment: fixed;
     background-size: cover;
 }
@@ -171,7 +178,7 @@ h4 em {
 /* Services */
 
 .services_features i {
-    color: #FFD700;
+    color: var(--goldcolor);
     font-size: 2em;
     margin-bottom: 1em;
     transition: transform 0.5s ease-in-out;
@@ -186,7 +193,7 @@ h4 em {
     }
 
     h4 {
-        color: #FFD700;
+        color: var(--goldcolor);
     }
 
 }
@@ -335,7 +342,7 @@ h4 em {
 
 .footer h3 a {
     text-decoration: none;
-    color: #FFD700;
+    color: var(--goldcolor);
     font-size: 1.2em;
     margin-bottom: 0.5em;
     display: inline-block;
@@ -424,11 +431,67 @@ h4 em {
 .pricing-item-regular .btn-link {
     text-decoration: none;
     text-align: right;
-    color: #FFD700;
+    color: var(--goldcolor);
 }
 
 .pricing-item-regular .btn-link a {
-    color: #FFD700;
+    color: var(--goldcolor);
 }
 
 /*****************************************************************/
+
+.welcometext h2 {
+    font-family: 'Passions Conflict', serif;
+    font-size: 4em;
+
+}
+
+.welcometext span {
+    font-family: 'Poppins', serif;
+    font-size: 0.7em;
+}
+
+@media (max-width: 600px) {
+
+    .social {
+        text-align: center;
+    }
+
+    .details ul li {
+        text-align: center;
+    }
+
+    .welcometext h2 {
+        font-size: 2em;
+        text-align: center;
+
+    }
+
+    .welcometext span {
+        font-size: 0.4em;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcometext h2 {
+        font-size: 3em;
+        text-align: center;
+
+    }
+
+    .welcometext span {
+        font-size: 0.5em;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .social {
+        text-align: center;
+    }
+
+    .details ul li {
+        text-align: center;
+    }
+
+}
