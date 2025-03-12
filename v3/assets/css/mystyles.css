@@ -1,9 +1,9 @@
 :root {
-    --goldcolor: #FFD700 ;
+    --goldcolor: #FFD700;
     --bggradient: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
-    
 }
 
+ 
 html,
 body {
     font-family: 'Poppins', sans-serif;
@@ -25,8 +25,7 @@ body {
     /* Ensures the body covers at least the full viewport height */
     overflow-x: hidden;
     /* Prevents horizontal scrolling */
-}
-
+} 
 
 /* Adding fixed full-width image */
 body::before {
@@ -177,25 +176,58 @@ h4 em {
 /*****************************************************************/
 /* Services */
 
-.services_features i {
-    color: var(--goldcolor);
-    font-size: 2em;
-    margin-bottom: 1em;
-    transition: transform 0.5s ease-in-out;
+.services_features>div {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+
+    i {
+        grid-row: 1;
+        color: var(--goldcolor);
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+
+    h4 {
+        grid-row: 2;
+    }
+
+    p {
+        grid-row: 3;
+    }
+
+    * {
+        transition: transform 0.5s ease-in-out, color 0.8s ease-in-out, grid-row 2s ease-in-out;
+    }
 }
 
 .services_features>div:hover {
+    flex-direction: column;
+
     i {
         font-weight: normal;
         color: #fff;
-        transform: scaleX(-1);
-        transition: transform 0.5s ease-in-out;
+        transform: scaleX(-1) scale(1.5);
+        /* Flip horizontally and zoom in */
+        margin-bottom: 0.5em;
+        grid-row: 2;
     }
 
     h4 {
         color: var(--goldcolor);
+        grid-row: 1;
+        margin-bottom: 0.5em;
     }
 
+    p {
+        grid-row: 3;
+    }
+
+    * {
+        transition: transform 0.5s ease-in-out, color 0.8s ease-in-out, grid-row 2s ease-in-out;
+    }
 }
 
 /*****************************************************************/
@@ -272,8 +304,12 @@ h4 em {
 
 .map iframe {
     width: 100%;
-    min-height: 250px;
+    min-height: 250px; /* Ensures a minimum height */
+    height: auto; /* Allows it to scale proportionally */
+    aspect-ratio: 16 / 9; /* Keeps a consistent aspect ratio */
+    max-width: 100%; /* Prevents overflow */
 }
+
 
 
 .contact-top {
