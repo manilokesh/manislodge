@@ -108,6 +108,7 @@ h4 em {
 
 
 .js-preloader {
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -396,8 +397,7 @@ h4 em {
     color: #FFF;
     position: relative;
     display: inline-block;
-    margin-top: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 20px; 
     font-size: 48px;
     letter-spacing: 4px;
     box-sizing: border-box;
@@ -419,8 +419,8 @@ h4 em {
     width: 8px;
     height: 8px;
     position: absolute;
-    left: 110px;
-    top: 2px;
+    left: 130px;
+    top: 10px;
     border-radius: 50%;
     background: red;
     box-sizing: border-box;
