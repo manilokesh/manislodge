@@ -479,12 +479,16 @@ h4 em {
 .welcometext h2 {
     font-family: 'Passions Conflict', serif;
     font-size: 4em;
-
 }
 
 .welcometext span {
     font-family: 'Poppins', serif;
     font-size: 0.7em;
+}
+
+
+.welcometext span1 { 
+    font-size: 0.9em;
 }
 
 @media (max-width: 600px) {
