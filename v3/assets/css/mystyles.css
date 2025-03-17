@@ -1,0 +1,537 @@
+:root {
+    --goldcolor: #FFD700;
+    --bggradient: linear-gradient(195deg, #ff00c3, #d123ba, #a42dab, #7b2f97, #552b80, #342465, #181a48, #050b2b);
+}
+
+
+html,
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #fff;
+    background: var(--bggradient);
+    background-attachment: fixed;
+    /* Keeps the background fixed */
+    background-size: cover;
+    /* Ensures it covers the entire viewport */
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    /* Ensures the body covers at least the full viewport height */
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+}
+
+/* Adding fixed full-width image */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(../images/blue_gradient_wave.png) center center / cover no-repeat;
+    z-index: -1;
+    /* Keeps it behind the content */
+    opacity: 0.10;
+    /* Adjust transparency if needed */
+    /*transform: translate(20%, 10%) rotate(135deg);*/
+    /* Adjust angle as needed */
+    filter: invert(0.5)
+}
+
+/* Ensuring content stays above ::before */
+div#content {
+    position: relative;
+    /* z-index: 1; */
+}
+
+/*****************************************************************/
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+p {
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: 300;
+    color: #afafaf;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-heading h4 {
+    color: #fefefe;
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+h4 em {
+    font-style: normal;
+    color: var(--goldcolor);
+}
+
+.section-heading p {
+    margin-top: 10px;
+    margin-left: 12%;
+    margin-right: 12%;
+}
+
+.breaker01 {
+    background: #DBD9D9;
+    display: block;
+    height: 1.5px;
+    width: 15%;
+    margin: 0 auto;
+}
+
+
+/*****************************************************************/
+/* preloader */
+
+
+
+.js-preloader {
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    z-index: 9999;
+    -webkit-transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease, visibility 0.25s ease-out;
+
+    background: var(--bggradient);
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.js-preloader.loaded {
+    pointer-events: none;
+
+    animation: fadeOut 0.5s ease-out forwards;
+}
+
+/* Keyframes for fade-out effect */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+/*****************************************************************/
+/* Header */
+.social {
+    margin: 0.3em 0 0 0;
+}
+
+.details ul li {
+    display: inline-block;
+    color: #fff;
+    padding: 5px 0;
+    margin-right: 8px;
+}
+
+.details ul li a {
+    color: #fff;
+}
+
+.details ul li a:hover {
+    text-decoration: none;
+    color: #C76994;
+}
+
+/*****************************************************************/
+/* Services */
+
+.services_features>div {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+
+    i {
+        grid-row: 1;
+        color: var(--goldcolor);
+        font-size: 2em;
+        margin-bottom: 1em;
+    }
+
+    h4 {
+        grid-row: 2;
+    }
+
+    p {
+        grid-row: 3;
+    }
+
+    * {
+        transition: transform 0.5s ease-in-out, color 0.8s ease-in-out, grid-row 2s ease-in-out;
+    }
+}
+
+.services_features>div:hover {
+    flex-direction: column;
+
+    i {
+        font-weight: normal;
+        color: #fff;
+        transform: scaleX(-1) scale(1.5);
+        /* Flip horizontally and zoom in */
+        margin-bottom: 0.5em;
+        grid-row: 2;
+    }
+
+    h4 {
+        color: var(--goldcolor);
+        grid-row: 1;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        grid-row: 3;
+    }
+
+    * {
+        transition: transform 0.5s ease-in-out, color 0.8s ease-in-out, grid-row 2s ease-in-out;
+    }
+}
+
+/*****************************************************************/
+/* Carousel Slides */
+
+.banner_holder {
+    width: 100%;
+    height: 600px;
+    /* margin: 30px 0;*/
+    position: relative;
+    background-color: #ffffff;
+}
+
+.banner_image {
+    background: url(../images/slid1.jpg) 0 10% no-repeat fixed;
+    background-size: 100% 100%;
+    position: absolute;
+    height: 600px;
+    width: 100%;
+    z-index: 1;
+}
+
+.banner_holder2 {
+    height: 400px;
+}
+
+.banner_holder2 .banner_image {
+    height: 400px;
+}
+
+.carousel-item {
+    height: 100%;
+    min-height: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 5%;
+}
+
+.carousel-item i {
+    font-size: 4em;
+    margin-bottom: 0.8em;
+    background: linear-gradient(90deg, #ff00c3, #d123ba, #a42dab, #7b2f97);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    /* Ensures it only applies to the text */
+}
+
+.carousel-item p {
+    margin-top: 1em;
+    color: #fff;
+}
+
+/*****************************************************************/
+/* gallery */
+
+.gallery-grid img {
+    width: 100%;
+}
+
+.gallery-grid:hover img {
+    filter: grayscale(100%);
+    opacity: 8;
+    transition: all 300ms !important;
+}
+
+.gallery-grid {
+    position: relative;
+}
+
+/*****************************************************************/
+/* Contact */
+
+.map iframe {
+    width: 100%;
+    min-height: 250px;
+    /* Ensures a minimum height */
+    height: auto;
+    /* Allows it to scale proportionally */
+    aspect-ratio: 16 / 9;
+    /* Keeps a consistent aspect ratio */
+    max-width: 100%;
+    /* Prevents overflow */
+}
+
+
+
+.contact-top {
+    margin-top: 3em;
+}
+
+.contact-bottom {
+    padding: 4em 0;
+}
+
+.contact-top-left {
+    float: left;
+    width: 30%;
+}
+
+.contact-top-right {
+    float: right;
+    width: 69%;
+}
+
+.contact-top-one h4 {
+    font-size: 1.4em;
+    color: #fff;
+
+    font-weight: 400;
+    margin: 0;
+    text-align: left;
+}
+
+.contact-top-one h6 {
+    color: #999;
+    font-size: 1em;
+    line-height: 1.8em;
+    margin: 1em 0;
+    text-align: left;
+}
+
+.contact-top-one span {
+    display: block;
+}
+
+.contact-top-one p, .contact-top-one p a {
+    color: #999;
+    font-size: 1em;
+    margin: 1em 0px;
+    line-height: 1.8em;
+    text-align: left;
+}
+
+.contact-top-one p a {
+    font-size: 1.1em;
+}
+
+.contact-top-one p a:hover {
+    color: #1f1e23;
+    text-decoration: none;
+}
+
+/*****************************************************************/
+/* footer */
+
+.footer {
+    padding: 2em;
+    text-align: center;
+}
+
+.footer h3 a {
+    text-decoration: none;
+    color: var(--goldcolor);
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    display: inline-block;
+}
+
+.footer p, .footer p a {
+    color: #999;
+    font-size: 1em;
+}
+
+/*****************************************************************/
+/* name 'i' jumping animation */
+
+.loaderx {
+    color: #FFF;
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 48px;
+    letter-spacing: 4px;
+    box-sizing: border-box;
+}
+
+.loaderx::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    right: 35px;
+    bottom: 20px;
+    height: 24px;
+    width: 5.15px;
+    background: currentColor;
+}
+
+.loaderx::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 130px;
+    top: 10px;
+    border-radius: 50%;
+    background: red;
+    box-sizing: border-box;
+    animation: animloader 1s ease-in infinite;
+}
+
+@keyframes animloader {
+    0% {
+        transform: translateY(8px) scaleY(1) scaleX(1.25);
+    }
+
+    25%, 75% {
+        transform: translateY(-5px) scaleY(1.2) scaleX(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scaleY(1) scaleX(1);
+    }
+
+    100% {
+        transform: translateY(8px) scaleY(0.8) scaleX(0.8);
+    }
+}
+
+/*****************************************************************/
+/* around us*/
+
+.pricing-item-regular {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.pricing-item-regular .icon img {
+    margin-bottom: 30px;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.pricing-item-regular .btn-link {
+    text-decoration: none;
+    text-align: right;
+    color: var(--goldcolor);
+}
+
+.pricing-item-regular .btn-link a {
+    color: var(--goldcolor);
+}
+
+/*****************************************************************/
+
+.welcometext h2 {
+    font-family: 'Passions Conflict', serif;
+    font-size: 4em;
+}
+
+.welcometext span {
+    font-family: 'Poppins', serif;
+    font-size: 0.7em;
+}
+
+
+@media (max-width: 600px) {
+
+    .social {
+        text-align: center;
+    }
+
+    .details ul li {
+        text-align: center;
+    }
+
+    .welcometext h2 {
+        font-size: 2em;
+        text-align: center;
+
+    }
+
+    .welcometext span {
+        font-size: 0.4em;
+    }
+}
+
+@media (max-width: 768px) {
+    .welcometext h2 {
+        font-size: 3em;
+        text-align: center;
+
+    }
+
+    .welcometext span {
+        font-size: 0.5em;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .social {
+        text-align: center;
+    }
+
+    .details ul li {
+        text-align: center;
+    }
+
+}
