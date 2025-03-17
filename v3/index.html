@@ -91,10 +91,9 @@
               <span class="loaderx">man&nbsp;s</span><br />
               <div class="welcometext wow fadeInUpBig" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
                 <h2 class="my-5 text-start">
-                  we <span style="font-family: 'Poppins', serif; font-size: 0.7em;">mani's lodge</span>
-                  <span1 class="text-slider-items" style="display: none;"> offers a warm, enjoyable and inviting
-                    atmosphere ...</span1>
-                  <span1 class="text-slider"></span1>
+                  we <span style="font-family: 'Poppins', serif; font-size: 0.7em;">mani's lodge</span> offers a <em <em
+                    class="text-slider-items " style="display: none;">warm, enjoyable, inviting</em> <em
+                    class="text-slider"> </em> atmosphere ...
                 </h2>
                 <p class="text-start">Located in the heart of the town, we are few 100 meters from the Kangayam bus
                   terminal. Best Lodge in Kangayam - Affordable & Comfortable Stay</p>
@@ -504,8 +503,7 @@
           $(".text-slider-items").text();
 
         var typed = new Typed(".text-slider", {
-          // strings: typed_strings.split(", "),
-          strings: [typed_strings],
+          strings: typed_strings.split(", "),
           typeSpeed: 50,
           loop: true,
           backDelay: 900,
