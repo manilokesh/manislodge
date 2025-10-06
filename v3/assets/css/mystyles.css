@@ -543,3 +543,43 @@ h4 em {
     }
 
 }
+
+/*****************************************************************/
+
+#divWeatherResult {
+    #hourlyForecastRow, #dailySunriseSunsetRow {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .hourly-item {
+        display: inline-block;
+        width: 150px;
+        min-height: 140px;
+        text-align: center;
+        padding: 10px;
+        margin-right: 10px;
+    }
+
+    .daily-item {
+        display: inline-block;
+        width: 160px;
+        min-height: 120px;
+        text-align: center;
+        padding: 2px;
+        margin-right: 10px;
+    }
+
+    .fa-solid {
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+
+    .current-weather-icon {
+        font-size: 32px;
+        margin-bottom: 10px;
+    }
+
+}
+
+/*****************************************************************/

@@ -293,26 +293,49 @@
       <!-- Weather -->
       <div class="container" id="divWeatherResult" class="d-none">
         <div class="row">
-          <div class="col-lg-8 offset-lg-2">
+          <div class="col-lg-10 offset-lg-1">
             <div class="section-heading">
-              <h4><i class="fas fa-sun me-3"></i>
-                <em>Weather</em> at our location
-              </h4>
-              <img src="assets/images/heading-line-dec.png" alt="">
-              <p id="contentWeatherResult">
-              <h3>Current Weather</h3>
-              <p><strong>Temperature:</strong> <span id="currentTemp"></span>°C</p>
-              <p><strong>Day/Night:</strong> <span id="isDay"></span></p>
+              <div class="section-heading text-center mb-4">
+                <h4><i class="fas fa-sun me-3"></i><em>Weather</em> at our location</h4>
+                <img src="assets/images/heading-line-dec.png" alt="Decorative line">
+              </div>
 
-              <h3>Daily Sunrise & Sunset</h3>
-              <p><strong>Sunrise:</strong> <span id="sunrise"></span></p>
-              <p><strong>Sunset:</strong> <span id="sunset"></span></p>
+              <!-- Current Weather Section -->
+              <div class="rounded-3  mb-4 ">
+                <div class="  text-white">
+                  <h5 class="mb-0">Current Weather</h5>
+                </div>
+                <div class="text-center shadow-lg">
+                  <i id="currentWeatherIcon" class="fa-solid"></i>
+                  <p id="currentWeatherDesc"></p>
+                  <p><strong>Temperature:</strong> <span id="currentTemp"></span>°C</p>
+                  <p><strong>Day/Night:</strong> <span id="isDay"></span></p>
+                </div>
+              </div>
 
-              <h3>Hourly Forecast</h3>
-              <ul id="hourlyForecast" class="list-group">
-                <!-- Hourly forecast items will be dynamically added here -->
-              </ul>
-              </p>
+              <!-- Daily Sunrise & Sunset Section -->
+              <div class="rounded-3   mb-4">
+                <div class="text-white">
+                  <h5 class="mb-0">Daily Sunrise & Sunset</h5>
+                </div>
+                <div class="p-3">
+                  <div id="dailySunriseSunsetRow" class="row flex-nowrap">
+                    <!-- Daily sunrise/sunset items will be dynamically added here -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Hourly Forecast Section -->
+              <div class="rounded-3  ">
+                <div class="text-white">
+                  <h5 class="mb-0">Hourly Forecast</h5>
+                </div>
+                <div class="">
+                  <div id="hourlyForecastRow" class="row flex-nowrap">
+                    <!-- Hourly forecast items will be dynamically added here -->
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -526,74 +549,95 @@
           galleryContainer.append(galleryItem);
         }
 
-        // Get latitude and longitude from inputs
+        // Get latitude and longitude
         const latitude = 11.006;
         const longitude = 77.5609;
 
-        // Build API URL 
+        // Build API URL
         const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=sunrise,sunset&hourly=temperature_2m,weather_code&current=temperature_2m,is_day`;
+
         // Fetch data from Open-Meteo API
         $.getJSON(apiUrl, function (data) {
           // Extract current weather data
           const currentWeather = data.current_weather;
           const temperature = currentWeather.temperature;
+          const isDay = currentWeather.is_day === 1 ? "Day" : "Night";
           const weatherCode = currentWeather.weathercode;
-          const time = currentWeather.time;
-
-          // Extract current weather data
-          const currentTemp = data.current.temperature_2m;
-          const isDay = data.current.is_day === 1 ? "Day" : "Night";
 
           // Extract daily sunrise and sunset
-          const sunrise = data.daily.sunrise[0];
-          const sunset = data.daily.sunset[0];
+          const dailyTime = data.daily.time;
+          const dailySunrise = data.daily.sunrise;
+          const dailySunset = data.daily.sunset;
 
           // Extract hourly forecast data
-          const hourlyTime = data.hourly.time.slice(0, 12); // First 12 hours
+          const hourlyTime = data.hourly.time.slice(0, 12);
           const hourlyTemp = data.hourly.temperature_2m.slice(0, 12);
           const hourlyWeatherCode = data.hourly.weather_code.slice(0, 12);
 
-          // Map weather codes to descriptions
-          const weatherDescriptions = {
-            0: "Clear sky",
-            1: "Mainly clear",
-            2: "Partly cloudy",
-            3: "Overcast",
-            45: "Fog",
-            51: "Light drizzle",
-            61: "Rain",
-            71: "Snow",
-            95: "Thunderstorm"
+          // Map weather codes to descriptions and Font Awesome icons
+          const weatherMap = {
+            0: { description: "Clear sky", icon: "fa-solid fa-sun" },
+            1: { description: "Mainly clear", icon: "fa-solid fa-cloud-sun" },
+            2: { description: "Partly cloudy", icon: "fa-solid fa-cloud-sun" },
+            3: { description: "Overcast", icon: "fa-solid fa-cloud" },
+            45: { description: "Fog", icon: "fa-solid fa-smog" },
+            51: { description: "Light drizzle", icon: "fa-solid fa-cloud-rain" },
+            61: { description: "Rain", icon: "fa-solid fa-cloud-showers-heavy" },
+            71: { description: "Snow", icon: "fa-solid fa-snowflake" },
+            95: { description: "Thunderstorm", icon: "fa-solid fa-bolt" }
           };
 
-          alert(currentTemp);
-
           // Update the DOM with current weather data
-          $("#currentTemp").text(currentTemp);
+          const currentWeatherInfo = weatherMap[weatherCode] || { description: "Unknown", icon: "fa-solid fa-question" };
+          $("#currentWeatherIcon").addClass(currentWeatherInfo.icon);
+          $("#currentWeatherDesc").text(currentWeatherInfo.description);
+          $("#currentTemp").text(temperature);
           $("#isDay").text(isDay);
-          $("#sunrise").text(sunrise);
-          $("#sunset").text(sunset);
 
-          // Dynamically add hourly forecast items
-          const hourlyForecastList = $("#hourlyForecast");
-          hourlyForecastList.empty(); // Clear existing items
+          // Dynamically add daily sunrise/sunset items as a row
+          const dailySunriseSunsetRow = $("#dailySunriseSunsetRow");
+          dailySunriseSunsetRow.empty();
+          for (let i = 0; i < dailyTime.length; i++) {
+            const date = new Date(dailyTime[i]).toLocaleDateString([], { month: "short", day: "numeric" });
+            const sunrise = new Date(dailySunrise[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+            const sunset = new Date(dailySunset[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 
+            dailySunriseSunsetRow.append(`
+          <div class="daily-item rounded-3 shadow-lg">
+            <div class="p-2">
+              <h6 class="card-title">${date}</h6>
+              <p class="card-text">Sunrise: ${sunrise}</p>
+              <p class="card-text">Sunset: ${sunset}</p>
+            </div>
+          </div>
+        `);
+          }
+
+          // Dynamically add hourly forecast items as a row
+          const hourlyForecastRow = $("#hourlyForecastRow");
+          hourlyForecastRow.empty();
           for (let i = 0; i < hourlyTime.length; i++) {
             const time = new Date(hourlyTime[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
             const temp = hourlyTemp[i];
             const weatherCode = hourlyWeatherCode[i];
-            const weatherDescription = weatherDescriptions[weatherCode] || "Unknown";
+            const weatherInfo = weatherMap[weatherCode] || { description: "Unknown", icon: "fa-solid fa-question" };
 
-            hourlyForecastList.append(`
-            <li class="list-group-item">
-              <strong>${time}:</strong> ${temp}°C, ${weatherDescription}
-            </li>
-          `);
+            hourlyForecastRow.append(`
+          <div class="hourly-item rounded-3 shadow-lg">
+            <div class="p-2">
+              
+              <h6 class="card-title">${time}</h6>
+              <p class="card-text">${temp}°C</p>
+              <i class="${weatherInfo.icon}"></i>
+              <p class="card-text">${weatherInfo.description}</p>
+            </div>
+          </div>
+        `);
           }
 
-
           // Show the weather result card
-          $('#divWeatherResult').show();
+          $("#divWeatherResult").show();
+
         }).fail(function () {
           //alert('Failed to fetch weather data. Please check your inputs.');
         });
