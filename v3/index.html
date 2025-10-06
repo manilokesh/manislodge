@@ -199,7 +199,7 @@
           <div class="col-lg-8 offset-lg-2">
             <div class="section-heading">
               <h4><i class="fas fa-images me-3"></i>
-                Explore Our Comfortable <em></em>Spaces</em></h4>
+                Explore Our Comfortable <em>Spaces</em></h4>
               <img src="assets/images/heading-line-dec.png" alt="">
               <p>Take a tour of our beautifully designed rooms, each crafted to provide you with a cozy and
                 relaxing stay. Browse through the gallery to find your perfect space!</p>
@@ -209,6 +209,7 @@
         <div class="row" id="gallery-container"></div>
 
       </div>
+
 
       <div class="breaker01 my-5"></div>
 
@@ -285,6 +286,38 @@
 
           </div>
         </div>
+      </div>
+
+      <div class="breaker01 my-5"></div>
+
+      <!-- Weather -->
+      <div class="container" id="divWeatherResult" class="d-none">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <div class="section-heading">
+              <h4><i class="fas fa-sun me-3"></i>
+                <em>Weather</em> at our location
+              </h4>
+              <img src="assets/images/heading-line-dec.png" alt="">
+              <p id="contentWeatherResult">
+              <h3>Current Weather</h3>
+              <p><strong>Temperature:</strong> <span id="currentTemp"></span>°C</p>
+              <p><strong>Day/Night:</strong> <span id="isDay"></span></p>
+
+              <h3>Daily Sunrise & Sunset</h3>
+              <p><strong>Sunrise:</strong> <span id="sunrise"></span></p>
+              <p><strong>Sunset:</strong> <span id="sunset"></span></p>
+
+              <h3>Hourly Forecast</h3>
+              <ul id="hourlyForecast" class="list-group">
+                <!-- Hourly forecast items will be dynamically added here -->
+              </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row" id="gallery-container"></div>
+
       </div>
 
       <div class="breaker01 my-5"></div>
@@ -492,6 +525,79 @@
             </div> `;
           galleryContainer.append(galleryItem);
         }
+
+        // Get latitude and longitude from inputs
+        const latitude = 11.006;
+        const longitude = 77.5609;
+
+        // Build API URL 
+        const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&daily=sunrise,sunset&hourly=temperature_2m,weather_code&current=temperature_2m,is_day`;
+        // Fetch data from Open-Meteo API
+        $.getJSON(apiUrl, function (data) {
+          // Extract current weather data
+          const currentWeather = data.current_weather;
+          const temperature = currentWeather.temperature;
+          const weatherCode = currentWeather.weathercode;
+          const time = currentWeather.time;
+
+          // Extract current weather data
+          const currentTemp = data.current.temperature_2m;
+          const isDay = data.current.is_day === 1 ? "Day" : "Night";
+
+          // Extract daily sunrise and sunset
+          const sunrise = data.daily.sunrise[0];
+          const sunset = data.daily.sunset[0];
+
+          // Extract hourly forecast data
+          const hourlyTime = data.hourly.time.slice(0, 12); // First 12 hours
+          const hourlyTemp = data.hourly.temperature_2m.slice(0, 12);
+          const hourlyWeatherCode = data.hourly.weather_code.slice(0, 12);
+
+          // Map weather codes to descriptions
+          const weatherDescriptions = {
+            0: "Clear sky",
+            1: "Mainly clear",
+            2: "Partly cloudy",
+            3: "Overcast",
+            45: "Fog",
+            51: "Light drizzle",
+            61: "Rain",
+            71: "Snow",
+            95: "Thunderstorm"
+          };
+
+          alert(currentTemp);
+
+          // Update the DOM with current weather data
+          $("#currentTemp").text(currentTemp);
+          $("#isDay").text(isDay);
+          $("#sunrise").text(sunrise);
+          $("#sunset").text(sunset);
+
+          // Dynamically add hourly forecast items
+          const hourlyForecastList = $("#hourlyForecast");
+          hourlyForecastList.empty(); // Clear existing items
+
+          for (let i = 0; i < hourlyTime.length; i++) {
+            const time = new Date(hourlyTime[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+            const temp = hourlyTemp[i];
+            const weatherCode = hourlyWeatherCode[i];
+            const weatherDescription = weatherDescriptions[weatherCode] || "Unknown";
+
+            hourlyForecastList.append(`
+            <li class="list-group-item">
+              <strong>${time}:</strong> ${temp}°C, ${weatherDescription}
+            </li>
+          `);
+          }
+
+
+          // Show the weather result card
+          $('#divWeatherResult').show();
+        }).fail(function () {
+          //alert('Failed to fetch weather data. Please check your inputs.');
+        });
+
 
       });
     </script>
