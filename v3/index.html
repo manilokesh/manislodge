@@ -291,9 +291,9 @@
       <div class="breaker01 my-5"></div>
 
       <!-- Weather -->
-      <div class="container" id="divWeatherResult" class="d-none">
+      <div class="container-fluid" id="divWeatherResult" class="d-none">
         <div class="row">
-          <div class="col-lg-10 offset-lg-1">
+          <div class="col-lg-12">
             <div class="section-heading">
               <div class="section-heading text-center mb-4">
                 <h4><i class="fas fa-sun me-3"></i><em>Weather</em> at our location</h4>
@@ -303,13 +303,17 @@
               <!-- Current Weather Section -->
               <div class="rounded-3  mb-4 ">
                 <div class="  text-white">
-                  <h5 class="mb-0">Current Weather</h5>
+                  <h5 class="mb-2">Current Weather</h5>
                 </div>
-                <div class="text-center shadow-lg">
-                  <i id="currentWeatherIcon" class="fa-solid"></i>
-                  <p id="currentWeatherDesc"></p>
-                  <p><strong>Temperature:</strong> <span id="currentTemp"></span>°C</p>
-                  <p><strong>Day/Night:</strong> <span id="isDay"></span></p>
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col"><strong>Temperature:</strong> <span id="currentTemp"></span>°C</div>
+                    <div class="col"> <i id="currentWeatherIcon" class="fa-solid"></i>
+                      <p id="currentWeatherDesc"></p>
+                    </div>
+
+                    <div class="col"><strong>Day/Night:</strong> <span id="isDay"></span></div>
+                  </div>
                 </div>
               </div>
 
@@ -319,7 +323,7 @@
                   <h5 class="mb-0">Daily Sunrise & Sunset</h5>
                 </div>
                 <div class="p-3">
-                  <div id="dailySunriseSunsetRow" class="row flex-nowrap">
+                  <div id="dailySunriseSunsetRow" class="row flex-nowrap" style="padding: 10px;">
                     <!-- Daily sunrise/sunset items will be dynamically added here -->
                   </div>
                 </div>
@@ -331,7 +335,7 @@
                   <h5 class="mb-0">Hourly Forecast</h5>
                 </div>
                 <div class="">
-                  <div id="hourlyForecastRow" class="row flex-nowrap">
+                  <div id="hourlyForecastRow" class="row flex-nowrap" style="padding: 10px;">
                     <!-- Hourly forecast items will be dynamically added here -->
                   </div>
                 </div>
@@ -603,11 +607,11 @@
             const sunset = new Date(dailySunset[i]).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
 
             dailySunriseSunsetRow.append(`
-          <div class="daily-item rounded-3 shadow-lg">
+          <div class="daily-item rounded-3 shadow-sm">
             <div class="p-2">
               <h6 class="card-title">${date}</h6>
-              <p class="card-text">Sunrise: ${sunrise}</p>
-              <p class="card-text">Sunset: ${sunset}</p>
+              <p class="card-text m-0">Sunrise: ${sunrise}</p>
+              <p class="card-text m-0">Sunset: ${sunset}</p>
             </div>
           </div>
         `);
@@ -623,7 +627,7 @@
             const weatherInfo = weatherMap[weatherCode] || { description: "Unknown", icon: "fa-solid fa-question" };
 
             hourlyForecastRow.append(`
-          <div class="hourly-item rounded-3 shadow-lg">
+          <div class="hourly-item rounded-3 shadow-sm">
             <div class="p-2">
               
               <h6 class="card-title">${time}</h6>
