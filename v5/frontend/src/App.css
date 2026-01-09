@@ -29,3 +29,62 @@ button {
 a {
     transition: color 0.3s ease;
 }
+
+
+
+/*****************************************************************/
+/* name 'i' jumping animation */
+
+.loaderx {
+    color: #FFF;
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 48px;
+    letter-spacing: 4px;
+    box-sizing: border-box;
+}
+
+.loaderx::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    right: 35px;
+    bottom: 20px;
+    height: 24px;
+    width: 5.15px;
+    background: currentColor;
+}
+
+.loaderx::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 130px;
+    top: 10px;
+    border-radius: 50%;
+    background: red;
+    box-sizing: border-box;
+    animation: animloader 1s ease-in infinite;
+}
+
+@keyframes animloader {
+    0% {
+        transform: translateY(8px) scaleY(1) scaleX(1.25);
+    }
+
+    25%, 75% {
+        transform: translateY(-5px) scaleY(1.2) scaleX(1);
+    }
+
+    50% {
+        transform: translateY(-10px) scaleY(1) scaleX(1);
+    }
+
+    100% {
+        transform: translateY(8px) scaleY(0.8) scaleX(0.8);
+    }
+}
+
+/*****************************************************************/

@@ -1,47 +1,64 @@
-import React, { useState } from 'react';
-import { Eye } from 'lucide-react';
+import React, { useState } from "react";
+import { Eye } from "lucide-react";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const images = [
     {
-      url: 'images/g01.jpg',
-      alt: 'Modern hotel room with wooden accents'
+      url: "images/gallery/01.jpg",
+      alt: "Modern hotel room with wooden accents",
     },
     {
-      url: 'images/g02.jpg',
-      alt: 'Clean white bedding hotel room'
+      url: "images/gallery/02.jpg",
+      alt: "Clean white bedding hotel room",
     },
     {
-      url: 'images/g03.jpg',
-      alt: 'Modern minimalist hotel room'
+      url: "images/gallery/03.jpg",
+      alt: "Modern minimalist hotel room",
     },
     {
-      url: 'images/g04.jpg',
-      alt: 'Contemporary style hotel room'
+      url: "images/gallery/04.jpg",
+      alt: "Contemporary style hotel room",
     },
     {
-      url: 'images/g05.jpg',
-      alt: 'Comfortable hotel room'
+      url: "images/gallery/05.jpg",
+      alt: "Comfortable hotel room",
     },
     {
-      url: 'images/g06.jpg',
-      alt: 'Professional hotel room'
-    }
+      url: "images/gallery/06.jpg",
+      alt: "Professional hotel room",
+    },
+    {
+      url: "images/gallery/07.jpg",
+      alt: "Professional hotel room",
+    },
+    {
+      url: "images/gallery/08.jpg",
+      alt: "Professional hotel room",
+    },
+    {
+      url: "images/vcard.png",
+      alt: "Professional hotel room",
+    },
   ];
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-b from-white to-amber-50/30">
+    <section
+      id="gallery"
+      className="py-20 bg-gradient-to-b from-white to-amber-50/30"
+    >
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Explore Our <span className="text-amber-600">Comfortable Spaces</span>
+            Explore Our{" "}
+            <span className="text-amber-600">Comfortable Spaces</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto mb-6"></div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Take a tour of our beautifully designed rooms, each crafted to provide you with a cozy and relaxing stay
+            Take a tour of our beautifully designed rooms, each crafted to
+            provide you with a cozy and relaxing stay
           </p>
         </div>
 

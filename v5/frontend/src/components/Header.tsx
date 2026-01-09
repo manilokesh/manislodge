@@ -30,9 +30,10 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">
-              Mani's Lodge
+          <div className="flex items-center space-x-2"> 
+            <img src="images/logo1.png" alt="" className='invert ' style={{width: "70px", marginRight:"10px"}}></img>
+            <div className="text-2xl md:text-3xl font-poppins font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">
+              mani's lodge 
             </div>
           </div>
 

@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-amber-900/40 z-10"></div>
         <img
-          src="images/h01.jpg"
+          src="images/slid1.jpg"
           alt="Manis Lodge"
           className="w-full h-full object-cover"
         />
@@ -16,13 +16,13 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 z-20 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        <div className="max-w-4xl mx-auto">          
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-2 leading-tight text-nowrap">
             Welcome to{' '}
-            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
-              Mani's Lodge
+            <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent font-poppins ">
+              mani's lodge
             </span>
-          </h1>
+          </h1>          
           <p className="text-xl md:text-2xl text-gray-200 mb-4 font-light italic">
             A warm, enjoyable, inviting atmosphere
           </p>
@@ -32,6 +32,7 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <span className="loaderx font-poppins">man&nbsp;s</span><br />
             <a
               href="tel:+919488222044"
               className="group px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-semibold rounded-lg hover:from-amber-600 hover:to-orange-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center space-x-2"

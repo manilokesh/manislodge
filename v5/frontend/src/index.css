@@ -113,3 +113,8 @@ code {
         border-bottom-color: inherit;
     }
 }
+
+
+.font-poppins {
+    font-family: 'Poppins', serif;
+}
