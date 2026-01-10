@@ -17,7 +17,7 @@ const About = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-16 ">
           {/* Image Side */}
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">

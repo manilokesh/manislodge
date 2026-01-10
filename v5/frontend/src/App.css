@@ -49,10 +49,10 @@ a {
     content: '';
     box-sizing: border-box;
     position: absolute;
-    right: 35px;
-    bottom: 20px;
+    right: 43px;
+    bottom: 21px;
     height: 24px;
-    width: 5.15px;
+    width: 4.15px;
     background: currentColor;
 }
 
@@ -61,7 +61,7 @@ a {
     width: 8px;
     height: 8px;
     position: absolute;
-    left: 130px;
+    left: 124px;
     top: 10px;
     border-radius: 50%;
     background: red;
