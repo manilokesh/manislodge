@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Cloud,
   CloudRain,
@@ -13,7 +12,8 @@ import {
   Zap,
 } from "lucide-react";
 
-const getConditionFromCode = (code: number) => {
+// Explicitly type the return value
+const getConditionFromCode = (code: number): { condition: string; icon: React.ReactNode } => {
   const map: Record<number, { condition: string; icon: React.ReactNode }> = {
     0: {
       condition: "Clear sky",
@@ -108,11 +108,19 @@ const getConditionFromCode = (code: number) => {
   );
 };
 
+// Add proper typing to state
+interface CurrentWeather {
+  temperature: string;
+  condition: string;
+  dayNight: string;
+  icon: React.ReactNode;
+}
+
 const Weather = () => {
-  const latitude = 11.006;
+  const latitude = 11.006; // Erode, Tamil Nadu
   const longitude = 77.5609;
 
-  const [currentWeather, setCurrentWeather] = useState({
+  const [currentWeather, setCurrentWeather] = useState<CurrentWeather>({
     temperature: "Loading...",
     condition: "Loading...",
     dayNight: "Loading...",
@@ -146,7 +154,7 @@ const Weather = () => {
           temperature: temp,
           condition,
           dayNight: isDay,
-          icon,
+          icon, // Now properly typed as React.ReactNode
         });
 
         // Sunrise & Sunset (next 6 days starting today)
@@ -242,7 +250,7 @@ const Weather = () => {
                   {currentWeather.condition}
                 </div>
               </div>
-              <Cloud className="w-20 h-20 opacity-80" />
+              {currentWeather.icon} {/* Now properly typed */}
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-3">
               <div className="flex items-center justify-between">
