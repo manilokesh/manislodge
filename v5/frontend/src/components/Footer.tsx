@@ -16,11 +16,17 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* About Column */}
           <div>
-            
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
               Mani's Lodge
             </h3>
-             <p> <img src="images/logo1.png" alt=""   style={{width: "70px" }}></img></p>
+            <p>
+              {" "}
+              <img
+                src="images/logo1.png"
+                alt=""
+                style={{ width: "70px" }}
+              ></img>
+            </p>
             <p className="text-gray-400 leading-relaxed mb-4">
               Experience the warmth of South Indian hospitality in the heart of
               Kangayam. Comfortable rooms, modern amenities, and exceptional
@@ -137,7 +143,7 @@ const Footer = () => {
             </h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>✓ All AC Rooms</li>
-              <li>✓ 24/7 Service</li>
+              <li>✓ EV car AC charging Unit</li>
               <li>✓ Free Parking</li>
               <li>✓ LED TV & Satellite</li>
               <li>✓ Hot & Cold Water</li>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, BatteryCharging, Wind } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -60,22 +60,33 @@ const Hero = () => {
           </div>
 
           {/* Info Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
-              <div className="text-3xl font-bold text-amber-400 mb-2">24/7</div>
-              <div className="text-white font-medium">Service Available</div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto px-4">
+            {/* Card 1: EV Charging (Replaced 24/7 Service) */}
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 hover:border-amber-400/30 transition-all duration-300 group">
+              <BatteryCharging className="w-8 h-8 text-amber-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <div className="text-3xl font-bold text-amber-400 mb-2">
+                EV Charging
+              </div>
+              <div className="text-white/80 font-medium">Unit Available</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+
+            {/* Card 2: AC Rooms */}
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 hover:border-amber-400/30 transition-all duration-300 group">
+              <Wind className="w-8 h-8 text-amber-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
               <div className="text-3xl font-bold text-amber-400 mb-2">
                 AC Rooms
               </div>
-              <div className="text-white font-medium">Modern Amenities</div>
+              <div className="text-white/80 font-medium">Modern Amenities</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20">
+
+            {/* Card 3: Location */}
+            <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/15 hover:border-amber-400/30 transition-all duration-300 group">
+              <MapPin className="w-8 h-8 text-amber-400 mb-3 group-hover:scale-110 transition-transform duration-300" />
               <div className="text-3xl font-bold text-amber-400 mb-2">
                 Walking
               </div>
-              <div className="text-white font-medium">From Bus Stand</div>
+              <div className="text-white/80 font-medium">From Bus Stand</div>
             </div>
           </div>
         </div>
